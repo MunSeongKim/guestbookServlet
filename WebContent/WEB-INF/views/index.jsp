@@ -29,12 +29,14 @@
 	</form>
 	<br>
 <%
+	int totalCount = list.size();
+	int index = 0;
 	if (list != null ) {
     	for ( GuestbookVO vo : list ) { 
 %>
 	<table width="510" border="1">
 		<tr>
-			<td>[<%= vo.getNo() %>]</td>
+			<td>[<%= totalCount - index %>]</td>
 			<td><%= vo.getName() %></td>
 			<td><%= vo.getRegDate() %></td>
 			<td><a href="/guestbook2/board?a=deleteform&no=<%= vo.getNo() %>">삭제</a></td>
@@ -47,6 +49,7 @@
 	</table>
 	<br />
 <%
+			index++;
 		}
 	}
 %>

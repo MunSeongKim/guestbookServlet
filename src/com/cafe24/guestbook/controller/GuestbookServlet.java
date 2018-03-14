@@ -26,6 +26,7 @@ public class GuestbookServlet extends HttpServlet {
 	    String no = request.getParameter( "no" );
 	    request.setAttribute( "no", no );
 	    WebUtil.forward( request, response, "/WEB-INF/views/deleteform.jsp" );
+	    
 	} else if ( "add".equals( actionName ) ) {
 	    String name = request.getParameter( "name" );
 	    String password = request.getParameter( "password" );
@@ -40,6 +41,7 @@ public class GuestbookServlet extends HttpServlet {
 	    dao.create( vo );
 
 	    WebUtil.redirect( request, response, "/guestbook2/board" );
+	    
 	} else if ( "delete".equals( actionName ) ) {
 	    Long no = Long.parseLong(request.getParameter( "no" ));
 		String password = request.getParameter( "password" );
